@@ -5,8 +5,14 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './test.component.html',
-  styleUrl: './test.component.scss'
+  styleUrl: './test.component.scss',
 })
 export class TestComponent {
+  title = 'Це інтерполяція';
+  firstName = 'FirstName';
+  lastName = 'LastBame';
 
+  getFullName() {
+    return `My name is ${this.firstName} ${this.lastName}`;
+  }
 }
