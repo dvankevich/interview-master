@@ -30,6 +30,6 @@ export class TestComponent {
   }
 
   toggleState() {
-    this.isClickedState = true;
+    this.isClickedState = !this.isClickedState;
   }
 }
