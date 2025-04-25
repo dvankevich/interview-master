@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -30,6 +30,7 @@ export class TestComponent {
 
   //----------------------------
   @Input() childMessage: string = '';
+  @Output() messageFromChild = new EventEmitter<string>();
   //----------------------------
 
   getFullName() {
@@ -38,5 +39,9 @@ export class TestComponent {
 
   toggleState() {
     this.isClickedState = !this.isClickedState;
+  }
+
+  sendMessageToParent() {
+    this.messageFromChild.emit('I am your son!');
   }
 }
