@@ -40,3 +40,18 @@ button:disabled {
   color: #999999;
   cursor: not-allowed;
 }
+
+.event-example {
+  width: 200px;
+  height: 100px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 100px;
+  cursor: pointer;
+}
+
+.clicked {
+  background-color: #007bff;
+  color: #ffffff;
+}

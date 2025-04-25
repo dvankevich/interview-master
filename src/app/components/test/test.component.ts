@@ -23,7 +23,13 @@ export class TestComponent {
 
   imageUrl = 'https://picsum.photos/200';
 
+  isClickedState: boolean = false;
+
   getFullName() {
     return `My name is ${this.firstName} ${this.lastName}`;
+  }
+
+  toggleState() {
+    this.isClickedState = true;
   }
 }
