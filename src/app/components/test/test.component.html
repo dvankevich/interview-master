@@ -1,17 +1,19 @@
 <div>
   <p>This is test component</p>
-  <p>-{{ title }}-</p>
-  <p>{{getFullName()}}</p>
+  <p>{{ title }}</p>
+  <!-- <p>{{getFullName()}}</p>
 
   <img [src]="imageUrl" alt="random image">
 
   <p [ngStyle]="{color: 'red'}">Use ngStyle</p>
-  <p [ngClass]="{'active': isActive, 'disabled':isDisabled}">Use ngClass</p>
+  <p [ngClass]="{'active': isActive, 'disabled':isDisabled}">Use ngClass</p> -->
 
   <!-- <button [disabled]="!isEnabled">Click me</button> -->
 
-  <div class="event-example" [ngClass]="{'clicked': isClickedState}"></div>
+  <!-- <div class="event-example" [ngClass]="{'clicked': isClickedState}"></div>
 
-  <button (click)="toggleState()">Switch the state</button>
+  <button (click)="toggleState()">Switch the state</button> -->
 
+  <input type="text" [(ngModel)]="inputText">
+  <p>{{ inputText }}</p>
 </div>
