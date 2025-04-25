@@ -5,6 +5,9 @@
 
   <img [src]="imageUrl" alt="random image">
 
+  <p [ngStyle]="{color: 'red'}">Use ngStyle</p>
+  <p [ngClass]="{'active': isActive, 'disabled':isDisabled}">Use ngClass</p>
+
   <button [disabled]="!isEnabled">Click me</button>
 
 </div>

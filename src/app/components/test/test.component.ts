@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-test',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
@@ -14,6 +15,12 @@ export class TestComponent {
 
   isEnabled: boolean = true;
   // isEnabled: boolean = false;
+
+  // isActive: boolean = true;
+  // isDisabled: boolean = false;
+  isActive: boolean = false;
+  isDisabled: boolean = true;
+
   imageUrl = 'https://picsum.photos/200';
 
   getFullName() {
