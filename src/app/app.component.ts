@@ -11,4 +11,6 @@ import { TestComponent } from './components/test/test.component';
 })
 export class AppComponent {
   title = 'interview-master';
+
+  messageFromParent = 'I am your father!!!';
 }

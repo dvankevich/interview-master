@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -27,6 +27,10 @@ export class TestComponent {
   isClickedState: boolean = false;
 
   inputText: string = 'default text';
+
+  //----------------------------
+  @Input() childMessage: string = '';
+  //----------------------------
 
   getFullName() {
     return `My name is ${this.firstName} ${this.lastName}`;
