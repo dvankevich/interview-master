@@ -20,12 +20,18 @@
 
   <button (click)="sendMessageToParent()">Send mail to father...</button> -->
 
-  <p *ngIf="isClickedState; else notClickedState">Кнопка була натиснута!!!</p>
+  <div *ngIf="isClickedState; else notClickedState">
+    <p>Кнопка була натиснута!!!</p>
+    <ul>
+      <li *ngFor="let user of users; index as i">{{i + 1}}: {{user}}</li>
+    </ul>
+  </div>
 
   <ng-template #notClickedState>
     <p>Кнопка ще не була натиснена.</p>
     <p appHighlight [highlightColor]="'blue'">наведіть курсор, щоб побачити ефект!!!</p>
   </ng-template>
+
   <button (click)="toggleState()">Перемкни state</button>
 
 </div>

@@ -15,6 +15,8 @@ export class TestComponent {
   firstName = 'FirstName';
   lastName = 'LastBame';
 
+  users = ['Alpha', 'Beta', 'Gamma', 'Zeta'];
+
   isEnabled: boolean = true;
   // isEnabled: boolean = false;
 
@@ -32,6 +34,7 @@ export class TestComponent {
   //----------------------------
   @Input() childMessage: string = '';
   @Output() messageFromChild = new EventEmitter<string>();
+
   //----------------------------
 
   getFullName() {
