@@ -35,7 +35,10 @@
   @if (isClickedState){
   <p>Кнопка була натиснута!!!</p>
   <ul>
-    <li *ngFor="let user of users; index as i">{{i + 1}}: {{user}}</li>
+    <!-- <li *ngFor="let user of users; index as i">{{i + 1}}: {{user}}</li> -->
+    @for (user of users; track user; let idx = $index){
+    <li>{{idx}}: {{user}}</li>
+    }
   </ul>
   } @else {
   <p>Кнопка ще не була натиснена.</p>
