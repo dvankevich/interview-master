@@ -37,7 +37,7 @@
   <ul>
     <!-- <li *ngFor="let user of users; index as i">{{i + 1}}: {{user}}</li> -->
     @for (user of users; track user; let idx = $index){
-    <li>{{idx}}: {{user}}</li>
+    <li>{{idx + 1}}: {{user}}</li>
     }
   </ul>
   } @else {
@@ -45,12 +45,27 @@
   <p appHighlight [highlightColor]="'blue'">наведіть курсор, щоб побачити ефект!!!</p>
   }
 
-  <div [ngSwitch]="appState">
+  <!-- <div [ngSwitch]="appState">
     <p *ngSwitchCase="'active'">App is active</p>
     <p *ngSwitchCase="'paused'">App is paused</p>
     <p *ngSwitchCase="'stopped'">App is stopped</p>
     <p *ngSwitchDefault>App state is undefined</p>
-  </div>
+  </div> -->
+
+  @switch (appState) {
+  @case ("active") {
+  <p>App is active</p>
+  }
+  @case ("paused") {
+  <p>App is paused</p>
+  }
+  @case ("stopped") {
+  <p>App is stopped</p>
+  }
+  @default {
+  <p>App state is undefined</p>
+  }
+  }
 
   <button (click)="toggleState()">Перемкни state</button>
 
