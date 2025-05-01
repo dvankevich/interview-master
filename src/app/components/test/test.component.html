@@ -20,7 +20,7 @@
 
   <button (click)="sendMessageToParent()">Send mail to father...</button> -->
 
-  <div *ngIf="isClickedState; else notClickedState">
+  <!-- <div *ngIf="isClickedState; else notClickedState">
     <p>Кнопка була натиснута!!!</p>
     <ul>
       <li *ngFor="let user of users; index as i">{{i + 1}}: {{user}}</li>
@@ -30,7 +30,17 @@
   <ng-template #notClickedState>
     <p>Кнопка ще не була натиснена.</p>
     <p appHighlight [highlightColor]="'blue'">наведіть курсор, щоб побачити ефект!!!</p>
-  </ng-template>
+  </ng-template> -->
+
+  @if (isClickedState){
+  <p>Кнопка була натиснута!!!</p>
+  <ul>
+    <li *ngFor="let user of users; index as i">{{i + 1}}: {{user}}</li>
+  </ul>
+  } @else {
+  <p>Кнопка ще не була натиснена.</p>
+  <p appHighlight [highlightColor]="'blue'">наведіть курсор, щоб побачити ефект!!!</p>
+  }
 
   <div [ngSwitch]="appState">
     <p *ngSwitchCase="'active'">App is active</p>
