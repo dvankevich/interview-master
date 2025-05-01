@@ -32,6 +32,13 @@
     <p appHighlight [highlightColor]="'blue'">наведіть курсор, щоб побачити ефект!!!</p>
   </ng-template>
 
+  <div [ngSwitch]="appState">
+    <p *ngSwitchCase="'active'">App is active</p>
+    <p *ngSwitchCase="'paused'">App is paused</p>
+    <p *ngSwitchCase="'stopped'">App is stopped</p>
+    <p *ngSwitchDefault>App state is undefined</p>
+  </div>
+
   <button (click)="toggleState()">Перемкни state</button>
 
 </div>

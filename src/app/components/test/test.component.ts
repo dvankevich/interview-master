@@ -25,6 +25,8 @@ export class TestComponent {
   isActive: boolean = false;
   isDisabled: boolean = true;
 
+  appState = '';
+
   imageUrl = 'https://picsum.photos/200';
 
   isClickedState: boolean = false;
@@ -43,6 +45,11 @@ export class TestComponent {
 
   toggleState() {
     this.isClickedState = !this.isClickedState;
+    if (this.isClickedState) {
+      this.appState = 'active';
+    } else {
+      this.appState = 'stopped';
+    }
   }
 
   sendMessageToParent() {
