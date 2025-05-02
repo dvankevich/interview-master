@@ -69,4 +69,14 @@
 
   <button (click)="toggleState()">Перемкни state</button>
 
+  <p>{{today | date: "shortDate"}}</p>
+  <p>{{"hello world!" | uppercase}}</p>
+  <p>{{"HELLO WoRlD!" | lowercase}}</p>
+  <p>{{1500.5 | currency}}</p>
+  <p>{{1.23456789 | number}}</p>
+  <p>{{0.5 | percent}}</p>
+  <p>{{"Hello world" | slice : 1 : 5}}</p>
+  <p>{{ {name: "John", age: 30} | json }}</p>
+  <p>{{ "Довгий текст, який потребує обрізання" | truncate : 18 }}</p>
+
 </div>

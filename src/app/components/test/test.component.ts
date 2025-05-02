@@ -2,11 +2,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from '../../directives/highlight.directive';
+import { TruncatePipe } from '../../pipes/truncate.pipe';
 
 @Component({
   selector: 'app-test',
   standalone: true,
-  imports: [CommonModule, FormsModule, HighlightDirective],
+  imports: [CommonModule, FormsModule, HighlightDirective, TruncatePipe],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
@@ -32,6 +33,8 @@ export class TestComponent {
   isClickedState: boolean = false;
 
   inputText: string = 'default text';
+
+  today = new Date();
 
   //----------------------------
   @Input() childMessage: string = '';
