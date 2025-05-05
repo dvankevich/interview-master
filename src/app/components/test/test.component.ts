@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TodoService } from '../../services/todo.service';
@@ -10,11 +10,13 @@ import { TodoService } from '../../services/todo.service';
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
-export class TestComponent {
+export class TestComponent implements OnInit{
   newTask: string = '';
   tasks: string[] = [];
 
-  constructor(private todoService: TodoService) {}
+  constructor() {}
+
+  private todoService = inject(TodoService);
 
   ngOnInit(){
     this.tasks = this.todoService.getTasks();
