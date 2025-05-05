@@ -16,7 +16,5 @@ export class AppComponent {
 
   messageFromChild = '';
 
-  getMessageFromChild(message: string) {
-    this.messageFromChild = message;
-  }
+
 }

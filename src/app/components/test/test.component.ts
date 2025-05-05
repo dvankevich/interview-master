@@ -1,61 +1,40 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HighlightDirective } from '../../directives/highlight.directive';
-import { TruncatePipe } from '../../pipes/truncate.pipe';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-test',
   standalone: true,
-  imports: [CommonModule, FormsModule, HighlightDirective, TruncatePipe],
+  imports: [CommonModule, FormsModule],
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
-  title = 'Це інтерполяція';
-  firstName = 'FirstName';
-  lastName = 'LastBame';
+  newTask: string = '';
+  tasks: string[] = [];
 
-  users = ['Alpha', 'Beta', 'Gamma', 'Zeta'];
+  constructor(private todoService: TodoService) {}
 
-  isEnabled: boolean = true;
-  // isEnabled: boolean = false;
-
-  // isActive: boolean = true;
-  // isDisabled: boolean = false;
-  isActive: boolean = false;
-  isDisabled: boolean = true;
-
-  appState = '';
-
-  imageUrl = 'https://picsum.photos/200';
-
-  isClickedState: boolean = false;
-
-  inputText: string = 'default text';
-
-  today = new Date();
-
-  //----------------------------
-  @Input() childMessage: string = '';
-  @Output() messageFromChild = new EventEmitter<string>();
-
-  //----------------------------
-
-  getFullName() {
-    return `My name is ${this.firstName} ${this.lastName}`;
+  ngOnInit(){
+    this.tasks = this.todoService.getTasks();
   }
-
-  toggleState() {
-    this.isClickedState = !this.isClickedState;
-    if (this.isClickedState) {
-      this.appState = 'active';
-    } else {
-      this.appState = 'stopped';
+  
+  addTask(){
+    if (this.newTask.trim() !== '') {
+      this.todoService.addTask(this.newTask.trim());
+      this.newTask = ''; // reset input field
+      this.updateTasks();
     }
   }
 
-  sendMessageToParent() {
-    this.messageFromChild.emit('I am your son!');
+  removeTask(index: number){
+    this.todoService.removeTask(index);
+    this.updateTasks();
+  }
+
+
+  private updateTasks(){
+    this.tasks = this.todoService.getTasks();
   }
 }
